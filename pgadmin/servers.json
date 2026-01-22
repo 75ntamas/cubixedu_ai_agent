@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "PGVector Database",
+      "Group": "Local",
+      "Host": "host.docker.internal",
+      "Port": 5432,
+      "MaintenanceDB": "vectordb",
+      "Username": "user",
+      "SSLMode": "prefer",
+      "Comment": "Lokális pgvector adatbázis"
+    }
+  }
+}

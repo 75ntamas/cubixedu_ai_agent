@@ -1,0 +1,20 @@
+{
+  "supported_extensions": {
+    "value": [".txt", ".md"],
+    "_description": "List of supported file extensions",
+    "_available_options": [".txt", ".md"]
+  },
+  "chunking_strategy": {
+    "value": "bytitle",
+    "_description": "Strategy for chunking documents into smaller pieces",
+    "_available_options": [
+      "alltext - Combine all elements into one chunk",
+      "bytitle - Create chunks separated by title elements",
+      "characters50 - Chunk with max_characters=100, new_after_n_chars=50, overlap=10"
+    ]
+  },
+  "api_endpoint": {
+    "value": "http://localhost:3000/api/chunks",
+    "_description": "API endpoint URL to upload chunks"
+  }
+}
