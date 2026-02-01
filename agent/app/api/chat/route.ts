@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     let systemPrompt: string;
     try {
       // Path relative to agent directory (go up one level to workspace root, then into assistant_config_docs)
-      const systemPromptPath = join(process.cwd(), '..', 'assistant_config_docs', 'system_prompt.md');
+      const systemPromptPath = join(process.cwd(), '..', 'assistant_config_docs', 'system_prompt_optimized.md');
       const systemPromptContent = await readFile(systemPromptPath, 'utf-8');
       // Keep the markdown content as-is (headers and all) - the LLM can handle it
       systemPrompt = systemPromptContent;
@@ -67,6 +67,7 @@ export async function POST(req: Request) {
     const result = streamText({
       model: openai('gpt-4o'),
       messages,
+      temperature: 0.9,
       onFinish: ({ text, toolCalls, toolResults, finishReason, usage }) => {
         console.log('[Chat API] Stream finished');
         console.log('[Chat API] Final text:', text);
